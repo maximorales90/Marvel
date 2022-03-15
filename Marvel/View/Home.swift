@@ -22,6 +22,7 @@ struct Home:  View {
                     Image(systemName:  "books.vertical.fill")
                     Text("Historietas")
                 }
+                .environmentObject(homeData)
         }
     }
 }

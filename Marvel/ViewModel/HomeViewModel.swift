@@ -16,6 +16,11 @@ class HomeViewModel: ObservableObject{
     
     @Published var fetchedPersonajes: [Personajes]? = nil
     
+    @Published var fetchedHistorietas: [Historietas] = []
+    
+    @Published var offset: Int = 0
+    
+
     init(){
         searchCancellable = $searchQuery
             .removeDuplicates()
@@ -59,6 +64,38 @@ class HomeViewModel: ObservableObject{
                     if self.fetchedPersonajes == nil {
                         self.fetchedPersonajes = personajes.data.results
                     }
+                }
+            }
+            catch{
+                print(error.localizedDescription)
+            }
+        }
+        .resume()
+    }
+    
+    func fetchHistorietas(){
+        
+        let ts = String(Date().timeIntervalSince1970)
+        let hash = MD5(data: "\(ts)\(privateKey)\(publicKey)")
+        let url = "https://gateway.marvel.com:443/v1/public/comics?limit=20&offset=\(offset)&ts=\(ts)&apikey=\(publicKey)&hash=\(hash)"
+    
+        let session = URLSession(configuration: .default)
+        
+        session.dataTask(with: URL(string: url)!){ (data, response, err) in
+            if let error = err{
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let APIData = data else{
+                print("No hay datos")
+                return
+            }
+            do{
+                let historietas = try JSONDecoder().decode(APIHistorietasResultado.self, from: APIData)
+                
+                DispatchQueue.main.async {
+                    self.fetchedHistorietas.append(contentsOf: historietas.data.results)
                 }
             }
             catch{
