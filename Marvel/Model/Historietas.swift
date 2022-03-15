@@ -1,5 +1,5 @@
 //
-//  Personajes.swift
+//  Historietas.swift
 //  Marvel
 //
 //  Created by Maximiliano Morales on 15/03/2022.
@@ -7,22 +7,19 @@
 
 import SwiftUI
 
-struct APIPersonajesResultado: Codable {
-    var data: APIPersonajes
+struct APIHistorietasResultado: Codable {
+    var data: APIHistorietas
 }
 
-struct APIPersonajes: Codable {
+struct APIHistorietas: Codable {
     var count: Int
-    var results: [Personajes]
+    var results: [Historietas]
 }
 
-struct Personajes: Identifiable,Codable {
+struct Historietas: Identifiable,Codable {
     var id: Int
     var name: String
     var description: String
     var thumbnail: [String: String]
     var urls: [[String: String]]
 }
-
-
-

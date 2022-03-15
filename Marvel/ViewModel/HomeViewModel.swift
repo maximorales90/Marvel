@@ -52,7 +52,7 @@ class HomeViewModel: ObservableObject{
                 return
             }
             do{
-                let personajes = try JSONDecoder().decode(APIResultado.self, from: APIData)
+                let personajes = try JSONDecoder().decode(APIPersonajesResultado.self, from: APIData)
                 
                 DispatchQueue.main.async {
                     

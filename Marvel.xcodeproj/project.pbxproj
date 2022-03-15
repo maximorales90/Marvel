@@ -21,6 +21,8 @@
 		0FA83E7427E040E600982D4A /* PersonajesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA83E7327E040E600982D4A /* PersonajesView.swift */; };
 		0FA83E7627E0419600982D4A /* HistorietasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA83E7527E0419600982D4A /* HistorietasView.swift */; };
 		0FE6104A27E0D37700282FB9 /* Personajes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6104927E0D37700282FB9 /* Personajes.swift */; };
+		0FE6104D27E122D900282FB9 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6104C27E122D900282FB9 /* WebView.swift */; };
+		0FE6104F27E12F3200282FB9 /* Historietas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6104E27E12F3200282FB9 /* Historietas.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		0FA83E7527E0419600982D4A /* HistorietasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorietasView.swift; sourceTree = "<group>"; };
 		0FE6104927E0D37700282FB9 /* Personajes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personajes.swift; sourceTree = "<group>"; };
 		0FE6104B27E0EFFB00282FB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0FE6104C27E122D900282FB9 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		0FE6104E27E12F3200282FB9 /* Historietas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Historietas.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				0FE6104927E0D37700282FB9 /* Personajes.swift */,
+				0FE6104E27E12F3200282FB9 /* Historietas.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 				0FA83E6D27E03CC900982D4A /* Home.swift */,
 				0FA83E7327E040E600982D4A /* PersonajesView.swift */,
 				0FA83E7527E0419600982D4A /* HistorietasView.swift */,
+				0FE6104C27E122D900282FB9 /* WebView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -315,6 +321,8 @@
 				0FA83E7627E0419600982D4A /* HistorietasView.swift in Sources */,
 				0FA83E6E27E03CC900982D4A /* Home.swift in Sources */,
 				0FE6104A27E0D37700282FB9 /* Personajes.swift in Sources */,
+				0FE6104D27E122D900282FB9 /* WebView.swift in Sources */,
+				0FE6104F27E12F3200282FB9 /* Historietas.swift in Sources */,
 				0FA83E7027E03F6D00982D4A /* HomeViewModel.swift in Sources */,
 				0F32F57A27E0363B00A80868 /* MarvelApp.swift in Sources */,
 			);
