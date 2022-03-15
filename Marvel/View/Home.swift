@@ -16,11 +16,18 @@ struct Home:  View {
                     Image(systemName:  "person.3.fill")
                     Text("Personajes")
                 }
+                .environmentObject(homeData)
             HistorietasView()
                 .tabItem{
                     Image(systemName:  "books.vertical.fill")
                     Text("Historietas")
                 }
         }
+    }
+}
+
+struct Home_Previews: PreviewProvider {
+    static var previews: some View {
+        Home()
     }
 }

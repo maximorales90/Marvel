@@ -14,6 +14,8 @@ class HomeViewModel: ObservableObject{
     
     var searchCancellable: AnyCancellable? = nil
     
+    @Published var fetchedPersonajes: [Personajes]? = nil
+    
     init(){
         searchCancellable = $searchQuery
             .removeDuplicates()
@@ -27,5 +29,7 @@ class HomeViewModel: ObservableObject{
             })
     }
 
-    
+
+        
+    }
 }

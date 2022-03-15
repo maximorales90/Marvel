@@ -20,6 +20,7 @@
 		0FA83E7027E03F6D00982D4A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA83E6F27E03F6D00982D4A /* HomeViewModel.swift */; };
 		0FA83E7427E040E600982D4A /* PersonajesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA83E7327E040E600982D4A /* PersonajesView.swift */; };
 		0FA83E7627E0419600982D4A /* HistorietasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA83E7527E0419600982D4A /* HistorietasView.swift */; };
+		0FE6104A27E0D37700282FB9 /* Personajes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE6104927E0D37700282FB9 /* Personajes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		0FA83E6F27E03F6D00982D4A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0FA83E7327E040E600982D4A /* PersonajesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonajesView.swift; sourceTree = "<group>"; };
 		0FA83E7527E0419600982D4A /* HistorietasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorietasView.swift; sourceTree = "<group>"; };
+		0FE6104927E0D37700282FB9 /* Personajes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personajes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 		0FA83E6A27E03B8700982D4A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0FE6104927E0D37700282FB9 /* Personajes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				0FA83E7427E040E600982D4A /* PersonajesView.swift in Sources */,
 				0FA83E7627E0419600982D4A /* HistorietasView.swift in Sources */,
 				0FA83E6E27E03CC900982D4A /* Home.swift in Sources */,
+				0FE6104A27E0D37700282FB9 /* Personajes.swift in Sources */,
 				0FA83E7027E03F6D00982D4A /* HomeViewModel.swift in Sources */,
 				0F32F57A27E0363B00A80868 /* MarvelApp.swift in Sources */,
 			);
