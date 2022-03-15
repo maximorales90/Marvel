@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Combine
-import MapKit
+import CryptoKit
 
 class HomeViewModel: ObservableObject{
     @Published var searchQuery = ""
@@ -29,7 +29,40 @@ class HomeViewModel: ObservableObject{
             })
     }
 
-
+    func searchPersonajes(){
         
+        let ts = String(Date().timeIntervalSince1970)
+        let hash = MD5(data: "\(ts)\(privateKey)\(publicKey)")
+        let url = "https://gateway.marvel.com:443/v1/public/characters?ts=\(ts)&apikey=\(publicKey)&hash=\(hash)"
+        
+        let session = URLSession(configuration: .default)
+        
+        session.dataTask(with: URL(string: url)!){ (data, _, err) in
+            if let error = err{
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let APIData = data else{
+                print("No hay datos")
+                return
+            }
+            do{
+                
+            }
+            catch{
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
+    
+    func MD5(data: String)->String{
+        
+        let hash = Insecure.MD5.hash(data: data.data(using: .utf8) ?? Data())
+        return hash.map{
+            String(format: "%02hfx", $0)
+        }
+        .joined()
     }
 }
