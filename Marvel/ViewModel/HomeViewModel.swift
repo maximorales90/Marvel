@@ -21,9 +21,12 @@ class HomeViewModel: ObservableObject{
             .removeDuplicates()
             .debounce(for: 0.6, scheduler: RunLoop.main)
             .sink(receiveValue: { str in
+                
                 if str == ""{
-                    
-                } else{
+                    self.fetchedPersonajes = nil
+                }
+                else{
+                    self.searchPersonajes()
                     print(str)
                 }
             })
@@ -37,7 +40,7 @@ class HomeViewModel: ObservableObject{
         
         let session = URLSession(configuration: .default)
         
-        session.dataTask(with: URL(string: url)!){ (data, _, err) in
+        session.dataTask(with: URL(string: url)!){ (data, response, err) in
             if let error = err{
                 print(error.localizedDescription)
                 return
@@ -48,20 +51,27 @@ class HomeViewModel: ObservableObject{
                 return
             }
             do{
+                let personajes = try JSONDecoder().decode(APIResultado.self, from: APIData)
                 
+                DispatchQueue.main.async {
+                    
+                    if self.fetchedPersonajes == nil {
+                        self.fetchedPersonajes = personajes.data.results
+                    }
+                }
             }
             catch{
                 print(error.localizedDescription)
             }
         }
-        
+        .resume()
     }
     
     func MD5(data: String)->String{
         
         let hash = Insecure.MD5.hash(data: data.data(using: .utf8) ?? Data())
         return hash.map{
-            String(format: "%02hfx", $0)
+            String(format: "%02hhx", $0)
         }
         .joined()
     }
