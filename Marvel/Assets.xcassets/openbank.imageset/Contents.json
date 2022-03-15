@@ -19,8 +19,6 @@
     "version" : 1
   },
   "properties" : {
-    "auto-scaling" : "auto",
-    "localizable" : true,
     "template-rendering-intent" : "original"
   }
 }
