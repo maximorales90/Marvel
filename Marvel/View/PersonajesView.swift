@@ -89,7 +89,7 @@ struct PersonajeRowView: View {
                     .lineLimit(4)
                     .multilineTextAlignment(.leading)
                 
-                HStack(spacing: 10){
+                HStack(spacing: 6){
                     
                     ForEach(personaje.urls, id: \.self){ data in
                         NavigationLink(

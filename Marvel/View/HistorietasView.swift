@@ -98,7 +98,7 @@ struct HistorietaRowView: View {
                 }
                 
                 
-                HStack(spacing: 10){
+                HStack(spacing: 6){
                     
                     ForEach(historieta.urls, id: \.self){ data in
                         NavigationLink(
