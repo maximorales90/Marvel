@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct PersonajesView: View {
     @EnvironmentObject var homeData: HomeViewModel
@@ -19,6 +20,8 @@ struct PersonajesView: View {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(.gray)
                         TextField("Búsqueda de Personajes", text: $homeData.searchQuery)
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
                     }
                     .padding(.vertical,10)
                     .padding(.horizontal)
@@ -37,7 +40,7 @@ struct PersonajesView: View {
                     }
                     else{
                         ForEach(personajes){data in
-                            Text(data.name)
+                            PersonajeRowView(personaje: data)
                         }
 
                     }
@@ -58,5 +61,45 @@ struct PersonajesView: View {
 struct PersonajesView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+
+struct PersonajeRowView: View {
+    var personaje: Personajes
+    
+    var body: some View{
+        HStack(alignment: .top, spacing: 15){
+            
+            WebImage(url: extractImage(data: personaje.thumbnail))
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 150, height: 150)
+            
+            VStack(alignment: .leading, spacing: 8, content: {
+                
+                Text(personaje.name)
+                    .font(.title3)
+                    .fontWeight(.bold)
+                
+                Text(personaje.description)
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                    .lineLimit(4)
+                    .multilineTextAlignment(.leading)
+            })
+            Spacer(minLength: 0)
+        }
+    }
+    
+    func extractImage(data: [String: String])->URL{
+        
+        let path = data["path"] ?? ""
+        print(path)
+        let ext = data["extension"] ?? ""
+        print(ext)
+        
+        return URL(string: "\(path).\(ext)")!
+
     }
 }
