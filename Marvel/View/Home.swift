@@ -10,7 +10,6 @@ import SwiftUI
 struct Home:  View {
     @StateObject var homeData = HomeViewModel()
     var body: some View {
-     
         TabView{
             PersonajesView()
                 .tabItem{
