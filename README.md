@@ -8,7 +8,7 @@ La pantalla de Historietas, muestra todas las historietas a través de una consu
 
 Branch: Develop
 Contiene la solución alternativa y simple. 
-La pantalla de Personajes, muestra todas los personajes a través una consulta a la API de Marvel. Luego lista los resultados y cada Personaje puede ir al detalle a través de una WebView. 
+La pantalla de Personajes, muestra todos los personajes a través una consulta a la API de Marvel. Luego lista los resultados y cada Personaje puede ir al detalle a través de una WebView. 
 
 ## Requerimientos
 
