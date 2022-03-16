@@ -10,20 +10,10 @@ import SwiftUI
 struct Home:  View {
     @StateObject var homeData = HomeViewModel()
     var body: some View {
-        TabView{
+
             PersonajesView()
-                .tabItem{
-                    Image(systemName:  "person.3.fill")
-                    Text("Personajes")
-                }
                 .environmentObject(homeData)
-            HistorietasView()
-                .tabItem{
-                    Image(systemName:  "books.vertical.fill")
-                    Text("Historietas")
-                }
-                .environmentObject(homeData)
-        }
+        
     }
 }
 

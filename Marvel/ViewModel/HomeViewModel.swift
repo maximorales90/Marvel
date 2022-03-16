@@ -10,39 +10,16 @@ import Combine
 import CryptoKit
 
 class HomeViewModel: ObservableObject{
-    @Published var searchQuery = ""
-    
-    var searchCancellable: AnyCancellable? = nil
-    
-    @Published var fetchedPersonajes: [Personajes]? = nil
-    
-    @Published var fetchedHistorietas: [Historietas] = []
-    
+        
+    @Published var fetchedPersonajes: [Personajes] = []
+        
     @Published var offset: Int = 0
     
-
-    init(){
-        searchCancellable = $searchQuery
-            .removeDuplicates()
-            .debounce(for: 0.6, scheduler: RunLoop.main)
-            .sink(receiveValue: { str in
-                
-                if str == ""{
-                    self.fetchedPersonajes = nil
-                }
-                else{
-                    self.searchPersonajes()
-                    print(str)
-                }
-            })
-    }
-
-    func searchPersonajes(){
+    func fetchPersonajes(){
         
-        let originalQuery = searchQuery.replacingOccurrences(of: " ", with: "%20")
         let ts = String(Date().timeIntervalSince1970)
         let hash = MD5(data: "\(ts)\(privateKey)\(publicKey)")
-        let url = "https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=\(originalQuery)&ts=\(ts)&apikey=\(publicKey)&hash=\(hash)"
+        let url = "https://gateway.marvel.com:443/v1/public/characters?limit=20&offset=\(offset)&ts=\(ts)&apikey=\(publicKey)&hash=\(hash)"
     
         let session = URLSession(configuration: .default)
         
@@ -60,42 +37,7 @@ class HomeViewModel: ObservableObject{
                 let personajes = try JSONDecoder().decode(APIPersonajesResultado.self, from: APIData)
                 
                 DispatchQueue.main.async {
-                    
-                    if self.fetchedPersonajes == nil {
-                        self.fetchedPersonajes = personajes.data.results
-                    }
-                }
-            }
-            catch{
-                print(error.localizedDescription)
-            }
-        }
-        .resume()
-    }
-    
-    func fetchHistorietas(){
-        
-        let ts = String(Date().timeIntervalSince1970)
-        let hash = MD5(data: "\(ts)\(privateKey)\(publicKey)")
-        let url = "https://gateway.marvel.com:443/v1/public/comics?limit=20&offset=\(offset)&ts=\(ts)&apikey=\(publicKey)&hash=\(hash)"
-    
-        let session = URLSession(configuration: .default)
-        
-        session.dataTask(with: URL(string: url)!){ (data, response, err) in
-            if let error = err{
-                print(error.localizedDescription)
-                return
-            }
-            
-            guard let APIData = data else{
-                print("No hay datos")
-                return
-            }
-            do{
-                let historietas = try JSONDecoder().decode(APIHistorietasResultado.self, from: APIData)
-                
-                DispatchQueue.main.async {
-                    self.fetchedHistorietas.append(contentsOf: historietas.data.results)
+                    self.fetchedPersonajes.append(contentsOf: personajes.data.results)
                 }
             }
             catch{
