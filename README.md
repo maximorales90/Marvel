@@ -31,7 +31,7 @@ La pantalla de Personajes, muestra todos los personajes a través una consulta a
 ## Instalación
 
 * Descargar el proyecto.
-* Esperar hasta que se descarguen las dependencias.
+* Verificar que se descarguen las dependencias.
 * Seleccionar su Team y regenerar los certificados con su cuenta de Apple. 
 * Compilar el proyecto
   
