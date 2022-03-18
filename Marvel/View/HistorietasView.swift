@@ -54,7 +54,7 @@ struct HistorietasView: View {
                     .padding(.vertical)
                 }
             })
-                .navigationTitle("Historietas de Marvel")
+                .navigationTitle("Historietas")
         }
         .onAppear(perform: {
             if homeData.fetchedHistorietas.isEmpty{
