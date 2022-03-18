@@ -54,7 +54,7 @@ struct PersonajesView: View {
                     .padding(.vertical)
                 }
             })
-                .navigationTitle("Personajes de Marvel")
+                .navigationTitle("Marvel")
         }
         .onAppear(perform: {
             if homeData.fetchedPersonajes.isEmpty{
