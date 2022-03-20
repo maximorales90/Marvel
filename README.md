@@ -16,6 +16,12 @@ La pantalla de Personajes, muestra todos los personajes a través una consulta a
 - Xcode 13.0+
 - iOS 14.0+ 
 
+## ScreenShots 
+
+| Launch Screen | Personajes | Búsqueda | Detalle | Historietas |
+| :-: | :-: | :-: | :-: | :-: |
+| <img src="Assets/splash.png"/> | <img src="Assets/personajes.png"/> | <img src="Assets/busqueda.png"/> | <img src="Assets/detalle.png"/> | <img src="Assets/historietas.png"/> |
+
 
 ## Dependencias Usadas
 
