@@ -1,11 +1,20 @@
 # Marvel-SwiftUI
 Marvel iOS SwiftUI es una aplicación escrita en SwiftUI usando los conceptos de la Arquitectura MVVM 🚀.
 
+Contiene la solución alternativa y simple. 
+La pantalla de Personajes, muestra todos los personajes a través una consulta a la API de Marvel. Luego lista los resultados y cada Personaje puede ir al detalle a través de una WebView. 
+
 ## Requerimientos
 
 - Swift 5.0+
 - Xcode 13.0+
 - iOS 14.0+ 
+
+## ScreenShots 
+
+| Launch Screen | Personajes | Detalle |
+| :-: | :-: | :-: |
+| <img src="Assets/splash.png"/> | <img src="Assets/personajes.png"/> | <img src="Assets/detalle.png"/> | 
 
 
 ## Dependencias Usadas
